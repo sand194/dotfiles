@@ -1,0 +1,10 @@
+#+title: Readme
+
+* KDE Plasma
++ Kwin script: Polonium
++ Global theme: Edna
++ Icons: Cora
++ Plasma style: Edna
+
+
+* i3
