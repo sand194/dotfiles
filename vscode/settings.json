@@ -1,0 +1,31 @@
+{
+    "workbench.startupEditor": "none",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.colorCustomizations": {
+        "editor.background": "#000000",
+        "editor.selectionBackground": "#808080"
+    },
+    "[latex]": {
+        "editor.defaultFormatter": "mathematic.vscode-latex"
+    },
+    "latex-workshop.linting.chktex.exec.args": [
+        "-wall",
+        "-n22",
+        "-n30",
+        "-e16",
+        "-q",
+        "-n44"
+    ],
+    "workbench.settings.applyToAllProfiles": [
+        "latex-workshop.linting.chktex.exec.args"
+    ],
+    "explorer.confirmDelete": false,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "workbench.colorTheme": "Absolute Black",
+    "git.openRepositoryInParentFolders": "never",
+    "security.workspace.trust.untrustedFiles": "open",
+    "vsicons.dontShowNewVersionMessage": true,
+    "python.defaultInterpreterPath": "/Users/jakubpiasek/ds/ChatKNML/discord_bot/venv",
+    "notebook.lineNumbers": "on",
+    "editor.lineNumbers": "relative",
+}
