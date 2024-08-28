@@ -8,3 +8,8 @@
 
 
 * i3
+
+
+
+** Firefox CSS
+[[https://github.com/alfaaarex/keyfox][Keyfox]]
