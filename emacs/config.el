@@ -330,3 +330,15 @@
 ;; BACKGROUND TRANSPARENCY
 (set-frame-parameter nil 'alpha-background 89) ; For current frame
 (add-to-list 'default-frame-alist '(alpha-background . 89)) ; For all new frames henceforth
+
+
+;; org-fragtog - automated latex snippets for org-mode
+;; (add-hook 'org-mode-hook 'org-fragtog-mode)
+
+(use-package! org-fragtog
+:after org
+:hook (org-mode . org-fragtog) ; this auto-enables it when you enter an org-buffer, remove if you do not want this
+:config
+)
+
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 0.8))
