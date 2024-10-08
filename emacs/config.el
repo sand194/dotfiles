@@ -321,3 +321,12 @@
   :hook (python-mode . (lambda ()
                           (require 'lsp-pyright)
                           (lsp))))  ; or lsp-deferred
+
+
+
+
+(setq confirm-kill-emacs nil)
+
+;; BACKGROUND TRANSPARENCY
+(set-frame-parameter nil 'alpha-background 89) ; For current frame
+(add-to-list 'default-frame-alist '(alpha-background . 89)) ; For all new frames henceforth
