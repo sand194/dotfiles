@@ -342,3 +342,7 @@
 )
 
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 0.8))
+
+
+;; FONT SIZE
+(set-face-attribute 'default nil :font "Monospace-13" )
