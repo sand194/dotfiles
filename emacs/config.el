@@ -103,5 +103,8 @@ doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 12 :weight 'medium)
 ;; Remove Gnome scroll bar
 (push '(vertical-scroll-bars . nil) default-frame-alist)
 
+;; Launch Emacs as a maximized window in Gnome DE
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
 ;; Show dotfiles and everything using find-file (C-x C-f), for ivy
 (setq counsel-find-file-ignore-regexp nil)
