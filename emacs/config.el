@@ -34,12 +34,10 @@
 ;; `load-theme' function. This is the default:
 ;; (setq doom-theme 'doom-one)
 ;; Tell Emacs (and Doom) where to find your custom themes
-(add-to-list 'custom-theme-load-path (expand-file-name "themes/" doom-user-dir))
+;; (add-to-list 'custom-theme-load-path (expand-file-name "themes/" doom-user-dir))
 
 (setq doom-theme 'doom-challenger-deep)
 
-
-doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 12 :weight 'medium)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -105,6 +103,35 @@ doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 12 :weight 'medium)
 
 ;; Launch Emacs as a maximized window in Gnome DE
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
-;; Show dotfiles and everything using find-file (C-x C-f), for ivy
-(setq counsel-find-file-ignore-regexp nil)
+
+;; Ensure dotfiles and all files are visible in Ivy (find-file, etc.)
+(after! counsel
+  (setq counsel-find-file-ignore-regexp nil))
+
+
+;; Frame settings for GUI frames created via emacsclient -c
+(add-hook! 'after-make-frame-functions
+  (defun +my/apply-frame-settings (frame)
+    (with-selected-frame frame
+      (set-frame-parameter frame 'alpha-background 89)
+      (set-frame-font "JetBrainsMono Nerd Font-12" nil t)
+      (load-theme doom-theme t)
+      (set-face-foreground 'font-lock-comment-face "#a3a3a3")
+      (display-time-mode t)
+      ;; Needed in case the daemon started before this var was applied
+      (setq display-line-numbers-type 'relative)
+      (when (bound-and-true-p display-line-numbers-mode)
+        (display-line-numbers-mode 1)))))
+
+;; Also apply those frame settings to first frame if started without daemon
+(when (display-graphic-p)
+  (set-frame-parameter nil 'alpha-background 89)
+  (set-frame-font "JetBrainsMono Nerd Font-12" nil t)
+  (load-theme doom-theme t)
+  (set-face-foreground 'font-lock-comment-face "#a3a3a3")
+  (display-time-mode t)
+  (setq display-line-numbers-type 'relative)
+  (when (bound-and-true-p display-line-numbers-mode)
+    (display-line-numbers-mode 1)))
